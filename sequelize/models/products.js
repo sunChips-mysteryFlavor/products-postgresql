@@ -28,8 +28,14 @@ module.exports = (sequelize, DataTypes) => {
       description: DataTypes.STRING,
       category_id: DataTypes.INTEGER,
       default_price: DataTypes.DECIMAL(10, 2),
-      updated_at: DataTypes.NOW,
-      created_at: DataTypes.NOW,
+      updated_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+      },
+      created_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+      },
     },
     {
       sequelize,
