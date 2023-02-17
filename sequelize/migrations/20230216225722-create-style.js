@@ -10,6 +10,7 @@ module.exports = {
       },
       product_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'product', key: 'product_id' },
       },
       name: {
         type: Sequelize.STRING,
@@ -22,12 +23,6 @@ module.exports = {
       },
       default: {
         type: Sequelize.BOOLEAN,
-      },
-      createdAt: {
-        type: Sequelize.DATE,
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
       },
     });
   },

@@ -3,19 +3,20 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('features', {
-      feature_id: {
+      features_id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.INTEGER,
+        references: { model: 'featureProduct', key: 'features_id' },
       },
-      title: {
+      product_id: {
+        type: Sequelize.INTEGER,
+      },
+      feature: {
         type: Sequelize.STRING,
       },
-      createdAt: {
-        type: Sequelize.DATE,
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
+      value: {
+        type: Sequelize.STRING,
       },
     });
   },

@@ -10,18 +10,13 @@ module.exports = {
       },
       style_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'style', key: 'style_id' },
       },
       thumbnail_url: {
         type: Sequelize.STRING,
       },
       url: {
         type: Sequelize.STRING,
-      },
-      createdAt: {
-        type: Sequelize.DATE,
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
       },
     });
   },

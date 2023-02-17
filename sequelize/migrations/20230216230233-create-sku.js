@@ -10,18 +10,13 @@ module.exports = {
       },
       style_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'style', key: 'style_id' },
       },
       quantity: {
         type: Sequelize.INTEGER,
       },
       size: {
         type: Sequelize.STRING,
-      },
-      createdAt: {
-        type: Sequelize.DATE,
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
       },
     });
   },
