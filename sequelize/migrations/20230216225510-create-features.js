@@ -3,14 +3,12 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('features', {
-      features_id: {
+      feature_id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        primaryKey: true,
-        type: Sequelize.INTEGER,
-        references: { model: 'featureProduct', key: 'features_id' },
-      },
-      product_id: {
-        type: Sequelize.INTEGER,
+        unique: true,
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       feature: {
         type: Sequelize.STRING,

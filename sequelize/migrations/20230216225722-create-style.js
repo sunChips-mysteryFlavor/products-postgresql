@@ -10,7 +10,7 @@ module.exports = {
       },
       product_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'product', key: 'product_id' },
+        references: { model: 'products', key: 'product_id' },
       },
       name: {
         type: Sequelize.STRING,

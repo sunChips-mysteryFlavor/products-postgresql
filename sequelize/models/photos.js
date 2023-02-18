@@ -9,10 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.styles, {
-        foreignKey: {
-          name: 'style_id',
-        },
+      this.belongsTo(models.style, {
+        foreignKey: 'style_id',
+
         onDelete: 'CASCADE',
       });
     }

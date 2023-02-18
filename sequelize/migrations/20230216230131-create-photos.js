@@ -10,7 +10,7 @@ module.exports = {
       },
       style_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'style', key: 'style_id' },
+        references: { model: 'styles', key: 'style_id' },
       },
       thumbnail_url: {
         type: Sequelize.STRING,

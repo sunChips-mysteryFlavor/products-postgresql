@@ -18,8 +18,11 @@ module.exports = {
         type: Sequelize.STRING,
       },
       category_id: {
-        type: Sequelize.STRING,
-        references: { model: 'category', key: 'category_id' },
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'category',
+          key: 'category_id',
+        },
       },
       default_price: {
         type: Sequelize.INTEGER,

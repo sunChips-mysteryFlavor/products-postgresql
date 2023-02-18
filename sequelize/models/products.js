@@ -13,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsToMany(models.features, {
         through: models.productFeatures,
         foreignKey: 'product_id',
+        otherKey: 'feature_id',
+        as: 'productFeatures',
       });
       this.hasMany(models.style, { foreignKey: 'product_id' });
     }

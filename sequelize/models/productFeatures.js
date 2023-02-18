@@ -9,15 +9,28 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsToMany(models.products, {
+        through: 'productFeatures',
+        foreignKey: 'feature_id',
+      });
+      this.belongsToMany(models.features, {
+        through: 'productFeatures',
+        foreignKey: 'product_id',
+      });
     }
   }
   productFeatures.init(
     {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
       product_id: {
         type: DataTypes.INTEGER,
         references: {
           model: 'products',
-          key: 'id',
+          key: 'product_id',
         },
       },
       feature_id: {
