@@ -2,8 +2,8 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const inputFilePath = '../import/skus.csv';
-const outputFilePath = '../export/skus_C.csv';
+const inputFilePath = './data/import/skus.csv';
+const outputFilePath = './data/export/skus_C.csv';
 
 const writer = createCsvWriter({
   path: outputFilePath,
@@ -20,6 +20,8 @@ const rows = [];
 fs.createReadStream(inputFilePath)
   .pipe(csv())
   .on('data', (row) => {
+    row.quantity = row.quantity.trim();
+
     rows.push(row);
   })
   .on('end', () => {

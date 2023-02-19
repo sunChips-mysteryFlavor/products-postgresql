@@ -2,8 +2,8 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const inputFilePath = '../import/styles.csv';
-const outputFilePath = '../export/styles_C.csv';
+const inputFilePath = './data/import/styles.csv';
+const outputFilePath = './data/export/styles_C.csv';
 
 const writer = createCsvWriter({
   path: outputFilePath,
@@ -23,7 +23,7 @@ fs.createReadStream(inputFilePath)
   .pipe(csv())
   .on('data', (row) => {
     row.default_style = row.default_style === '1';
-
+    if (row.sale_price === 'null') row.sale_price = '';
     rows.push(row);
   })
   .on('end', () => {
