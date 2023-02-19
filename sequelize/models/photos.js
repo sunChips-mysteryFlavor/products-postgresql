@@ -23,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
       },
       style_id: DataTypes.INTEGER,
-      thumbnail_url: DataTypes.STRING,
-      url: DataTypes.STRING,
+      thumbnail_url: DataTypes.TEXT,
+      url: DataTypes.TEXT,
     },
     {
       sequelize,

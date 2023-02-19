@@ -13,10 +13,10 @@ module.exports = {
         references: { model: 'styles', key: 'style_id' },
       },
       thumbnail_url: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       url: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
     });
   },
