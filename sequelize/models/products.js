@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       name: DataTypes.STRING,
       slogan: DataTypes.STRING,
-      description: DataTypes.STRING,
+      description: DataTypes.VARCHAR(1000),
       category_id: DataTypes.INTEGER,
       default_price: DataTypes.DECIMAL(10, 2),
       updated_at: {

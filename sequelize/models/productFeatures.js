@@ -12,10 +12,12 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsToMany(models.products, {
         through: 'productFeatures',
         foreignKey: 'feature_id',
+        otherKey: 'product_id',
       });
       this.belongsToMany(models.features, {
         through: 'productFeatures',
         foreignKey: 'product_id',
+        otherKey: 'feature_id',
       });
     }
   }
@@ -37,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         references: {
           model: 'features',
-          key: 'id',
+          key: 'feature_id',
         },
       },
     },

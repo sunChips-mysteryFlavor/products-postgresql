@@ -29,7 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       product_id: DataTypes.INTEGER,
       name: DataTypes.STRING,
       original_price: DataTypes.DECIMAL(10, 2),
-      sale_price: DataTypes.DECIMAL(10, 2),
+      sale_price: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: true,
+      },
       default: DataTypes.BOOLEAN,
     },
     {
