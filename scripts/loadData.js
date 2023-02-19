@@ -23,12 +23,6 @@ categoryCSVLoad(productCSV)
   .then(() => StyleCSVLoad(stylesCSV))
   .catch((err) => console.log(err));
 
-async function productFeaturesAssociation() {
-  const product = await products.findByPk(row.product_id);
-  const feature = await features.findByPk(row.feature_id);
-  await product.addFeature(feature);
-}
-
 //FROM PRODUCTS CSV
 //id,name,slogan,description,category,default_price
 function categoryCSVLoad(productCSV) {
