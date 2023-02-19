@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.VARCHAR(1000),
       },
       category_id: {
         type: Sequelize.INTEGER,

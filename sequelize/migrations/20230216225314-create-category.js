@@ -6,6 +6,7 @@ module.exports = {
       category_id: {
         allowNull: false,
         primaryKey: true,
+        autoIncrement: true,
         type: Sequelize.INTEGER,
       },
       name: {
