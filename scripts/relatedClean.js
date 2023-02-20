@@ -8,21 +8,33 @@ const outputFilePath = './data/export/related_C.csv';
 const writer = createCsvWriter({
   path: outputFilePath,
   header: [
-    { id: 'id', title: 'id' },
     { id: 'current_product_id', title: 'product_id' },
     { id: 'related_product_id', title: 'related_product_id' },
   ],
 });
 
 const rows = [];
+const seenRows = new Set();
 
 fs.createReadStream(inputFilePath)
   .pipe(csv())
   .on('data', (row) => {
-    if (row.related_product_id !== '0') {
-      row.default_style = row.default_style === '1';
-      if (row.sale_price === 'null') row.sale_price = '';
-      rows.push(row);
+    const productId = row.current_product_id;
+    const relatedProductId = row.related_product_id;
+    if (
+      productId &&
+      relatedProductId &&
+      productId !== '0' &&
+      relatedProductId !== '0'
+    ) {
+      const key = `${productId}_${relatedProductId}`;
+      if (!seenRows.has(key)) {
+        rows.push({
+          current_product_id: productId,
+          related_product_id: relatedProductId,
+        });
+        seenRows.add(key);
+      }
     }
   })
   .on('end', () => {
