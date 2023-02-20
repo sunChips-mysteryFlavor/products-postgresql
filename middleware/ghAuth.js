@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
   axios
     .get('https://api.github.com/orgs/hackreactor/teams/students-rfp2212', {
       headers: {
-        Authorization: `token ${req.headers.authorization}`,
+        Authorization: `token ${req.decryptedKey}`,
       },
     })
     .then((res) => {
