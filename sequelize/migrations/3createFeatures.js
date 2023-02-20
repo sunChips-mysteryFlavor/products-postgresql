@@ -6,9 +6,14 @@ module.exports = {
       feature_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        autoIncrement: true,
         unique: true,
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
+      },
+      product_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       feature: {
         type: Sequelize.STRING,

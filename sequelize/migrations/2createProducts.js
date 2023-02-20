@@ -9,6 +9,7 @@ module.exports = {
       product_id: {
         allowNull: false,
         primaryKey: true,
+        autoIncrement: true,
         type: Sequelize.INTEGER,
       },
       name: {
@@ -18,7 +19,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       description: {
-        type: Sequelize.VARCHAR(1000),
+        type: Sequelize.TEXT,
       },
       category_id: {
         type: Sequelize.INTEGER,
