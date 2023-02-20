@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
         through: models.productFeatures,
         foreignKey: 'product_id',
         otherKey: 'feature_id',
-        as: 'productFeatures',
       });
       this.hasMany(models.style, { foreignKey: 'product_id' });
     }
@@ -27,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       name: DataTypes.STRING,
       slogan: DataTypes.STRING,
-      description: DataTypes.VARCHAR(1000),
+      description: DataTypes.TEXT,
       category_id: DataTypes.INTEGER,
       default_price: DataTypes.DECIMAL(10, 2),
       updated_at: {

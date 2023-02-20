@@ -12,12 +12,12 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsToMany(models.products, {
         through: 'productFeatures',
         foreignKey: 'feature_id',
-        otherKey: 'product_id',
+        otherKey: 'productFeatures_products',
       });
       this.belongsToMany(models.features, {
-        through: 'productFeatures',
+        through: models.productFeatures,
         foreignKey: 'product_id',
-        otherKey: 'feature_id',
+        otherKey: 'productFeatures_features',
       });
     }
   }

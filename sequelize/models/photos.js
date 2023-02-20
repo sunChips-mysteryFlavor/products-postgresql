@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.style, {
         foreignKey: 'style_id',
-
         onDelete: 'CASCADE',
       });
     }

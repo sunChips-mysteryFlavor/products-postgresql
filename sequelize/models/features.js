@@ -13,10 +13,11 @@ module.exports = (sequelize, DataTypes) => {
         through: models.productFeatures,
         foreignKey: 'feature_id',
         otherKey: 'product_id',
-        as: 'products',
       });
-      this.belongsTo(models.productFeatures, {
+      this.belongsToMany(models.productFeatures, {
+        through: models.productFeatures,
         foreignKey: 'feature_id',
+        otherKey: 'product_id',
       });
     }
   }
@@ -25,7 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       feature_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+      },
+      product_id: {
+        type: DataTypes.INTEGER,
       },
       title: {
         type: DataTypes.STRING,
