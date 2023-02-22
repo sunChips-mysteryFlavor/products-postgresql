@@ -7,8 +7,8 @@ const app = express();
 app.use(express.json());
 
 //Github Authorization
-// app.use(accessToken);
-// app.use(ghAuth);
+app.use(accessToken);
+app.use(ghAuth);
 
 app.use('/', router);
 app.listen(3020);
