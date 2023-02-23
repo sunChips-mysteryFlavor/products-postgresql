@@ -11,7 +11,7 @@ const pool = new Pool({
   port: 5432,
 });
 
-router.get('/products/:product_id', (req, res) => {
+router.get('/:product_id', (req, res) => {
   const productId = req.params.product_id;
   console.log(productId);
   let output = {};
@@ -62,7 +62,7 @@ router.get('/products/:product_id', (req, res) => {
     .catch((err) => console.error(err));
 });
 
-router.get('/products/:product_id/styles', (req, res) => {
+router.get('/:product_id/styles', (req, res) => {
   const productId = req.params.product_id;
   const output = { product_id: productId };
   const styleArr = [];
@@ -130,7 +130,7 @@ router.get('/products/:product_id/styles', (req, res) => {
     });
 });
 
-router.get('/products/:product_id/related', (req, res) => {
+router.get('/:product_id/related', (req, res) => {
   const productId = req.params.product_id;
   pool
     .query(
