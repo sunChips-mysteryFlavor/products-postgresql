@@ -13,6 +13,7 @@ const pool = new Pool({
 
 router.get('/products/:product_id', (req, res) => {
   const productId = req.params.product_id;
+  console.log(productId);
   let output = {};
   pool
     .query(
