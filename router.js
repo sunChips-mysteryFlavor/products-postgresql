@@ -6,7 +6,7 @@ const router = express.Router();
 const pool = new Pool({
   user: 'samuelho',
   database: 'products',
-  port: 5432,
+  host: '54.88.155.195',
 });
 
 router.get('/products/:product_id', (req, res) => {

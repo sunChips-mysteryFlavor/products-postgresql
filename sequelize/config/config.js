@@ -13,7 +13,7 @@ module.exports = {
   production: {
     username: 'root',
     database: 'database_production',
-    host: '127.0.0.1',
+    host: '54.88.155.195',
     dialect: 'postgres',
   },
 };
