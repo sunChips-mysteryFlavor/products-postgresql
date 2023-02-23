@@ -1,4 +1,5 @@
 const express = require('express');
+const dotenv = require('dotenv').config({ path: '.env' });
 const router = require('./router');
 const accessToken = require('./middleware/accessTokenAuth.js');
 
@@ -9,5 +10,5 @@ app.use(express.json());
 app.use(accessToken);
 
 app.use('/', router);
-app.listen(process.env.PORT);
-console.log(`Listening at http://localhost:${process.env.PORT}`);
+app.listen(dotenv.PORT);
+console.log(`Listening at http://localhost:${dotenv.PORT}`);
