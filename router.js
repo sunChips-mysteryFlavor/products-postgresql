@@ -4,9 +4,11 @@ const { Pool } = require('pg');
 const router = express.Router();
 
 const pool = new Pool({
-  user: 'samuelho',
+  user: process.env.dbuser,
+  password: process.env.dbpassword,
   database: 'products',
   host: '54.88.155.195',
+  port: 5432,
 });
 
 router.get('/products/:product_id', (req, res) => {
